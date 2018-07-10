@@ -8,6 +8,7 @@ use App\Models\Page;
 use App\Models\Portfolio;
 use App\Models\People;
 use App\Models\Service;
+use DB;
 
 class IndexController extends Controller
 {
@@ -19,6 +20,8 @@ class IndexController extends Controller
         $services = Service::where('id','<', '20')->get();
         $peoples = People::take(3)->get();
 
+        $filters = DB::table('portfolios')->distinct()->pluck('filter');
+        //dd($filters);
         $menu = [];
         foreach ($pages as $page) {
             $item = ['title' => $page->name, 'alias' => $page->alias];
@@ -43,6 +46,7 @@ class IndexController extends Controller
                                         'services' => $services,
                                         'portfolios' => $portfolios,
                                         'peoples' => $peoples,
+                                        'filters' => $filters
 
                                         ]);
 
