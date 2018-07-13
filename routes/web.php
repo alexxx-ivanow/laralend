@@ -11,14 +11,18 @@
 |
 */
 
-Route::group(['middleware' => 'web'], function () {
+//Route::group(['middleware' => 'web'], function () {
 
-    Route::match(['get', 'post'], '/', ['uses' => 'IndexController@execute', 'as' => 'home']);
+    /*Route::match(['get', 'post'], '/', ['uses' => 'IndexController@execute', 'as' => 'home']);*/
+
+    Route::get( '/', ['uses' => 'IndexController@execute', 'as' => 'home']);
+    Route::post( '/', ['uses' => 'IndexController@show', 'as' => 'homep']);
+
     Route::get('/page/{alias}', ['uses' => 'PageController@execute', 'as' => 'page']);
 
     Auth::routes();
 
-});
+//});
 
 //admin/service
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
@@ -70,3 +74,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
 
 });
+
+

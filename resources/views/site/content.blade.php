@@ -1,3 +1,7 @@
+@if(session('status'))
+    <div class="alert alert-success">{{ session('status') }}</div>
+@endif
+
 @if(isset($pages))
 
 @foreach($pages as $k=>$value)
@@ -303,10 +307,14 @@
                 </div>
                 <div class="col-lg-8 wow fadeInLeft delay-06s">
                     <div class="form">
-                        <input class="input-text" type="text" name="" value="Your Name *" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">
-                        <input class="input-text" type="text" name="" value="Your E-mail *" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">
-                        <textarea class="input-text text-area" cols="0" rows="0" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">Your Message *</textarea>
+
+                        <form action="/" method="post">
+                            {{ csrf_field() }}
+                        <input class="input-text" type="text" name="name" value="Your Name *" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">
+                        <input class="input-text" type="text" name="email" value="Your E-mail *" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">
+                        <textarea name="text" class="input-text text-area" cols="0" rows="0" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">Your Message *</textarea>
                         <input class="input-btn" type="submit" value="send message">
+                        </form>
                     </div>
                 </div>
             </div>
