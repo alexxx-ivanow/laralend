@@ -18,7 +18,7 @@ class IndexController extends Controller
     //
     public function execute(Request $request) {
 
-        dump(Session::all());
+        //dump(Session::all());
 
             $pages = Page::all();
             $portfolios = Portfolio::get(['name', 'images', 'filter']);

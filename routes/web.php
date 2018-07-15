@@ -29,6 +29,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     //admin/
     Route::get('/', function () {
 
+        if (view()->exists('admin.index')) {
+
+            $data = ['title' => 'Панель управления'];
+            return view('admin.index', $data);
+        }
     });
 
 
@@ -36,7 +41,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
    Route::group(['prefix' => 'pages'], function () {
 
        //admin/pages
-       Route::get('/', ['uses' => 'PageController@execute', 'as' => 'pages']);
+       Route::get('/', ['uses' => 'PagesController@execute', 'as' => 'pages']);
 
        //admin/pages/add
        Route::match(['get','post'], 'add', ['uses' => 'PagesAddController@execute', 'as' => 'pagesAdd']);
@@ -76,3 +81,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 });
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
