@@ -34,13 +34,6 @@ class PagesAddController extends Controller
                 return redirect(route('pagesAdd'))->withErrors($validator)->withInput();
             }
 
-            $page = new Page();
-            $page->fill($input);
-
-            if ($page->save()) {
-                return redirect('admin')->with('status', 'Страница успешно добавлена');
-            }
-
             if ($request->hasFile('images')) {
 
                 $file = $request->file('images');
@@ -51,6 +44,12 @@ class PagesAddController extends Controller
 
             }
 
+            $page = new Page();
+            $page->fill($input);
+
+            if ($page->save()) {
+                return redirect('admin')->with('status', 'Страница успешно добавлена');
+            }
 
         }
 
