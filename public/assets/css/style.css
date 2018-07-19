@@ -1714,3 +1714,51 @@ background: #F9F9F9;
 width: 99%;
 }
 }
+
+
+.servicesItem>div>div {
+    display: inline-block;
+    float: left;
+    padding-right: 20px;
+    min-height: 80px;
+    border-bottom: 1px solid grey;
+    padding-bottom: 20px;
+}
+
+.servicesItem {
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.serviceItemNum {
+    /*min-width: 4%;*/
+}
+.serviceItemText {
+    /*max-width: 50%;*/
+    padding: 0 20px 20px;
+    max-height: 80px;
+}
+
+.serviceItemName {
+    /*min-width: 15%;*/
+}
+
+.serviceWrapContent {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.serviceItemName a {
+    font-size: 16px;
+    color: red;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.serviceItemName a:hover {
+    text-decoration: none;
+}
+.serviceWrapContent h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 23px;
+    color: #982926;
+}
