@@ -10,9 +10,10 @@
                 <div class="serviceInWrap">
                 <div class="serviceItemNum col-xs-1">{{ $value['id'] }}</div>
                 <div class="serviceItemName col-xs-3"><a href="{{route('servicesEdit',[$value['id']])}}">{{ $value['name'] }}</a></div>
-                <div class="serviceItemText col-xs-6">{{ $value['text'] }}</div>
+                <div class="serviceItemText col-xs-6">{!! $value['text'] !!}</div>
                 <div class="serviceItemDel col-xs-2">
                     {!! Form::open(['url'=>route('servicesEdit',['service'=>$value['id']]), 'class'=>'form-horizontal','method' => 'POST']) !!}
+                    {!! Form::hidden('id', $value['id']) !!}
                     {{ method_field('DELETE') }}
                     {!! Form::button('Удалить',['class'=>'btn btn-danger','type'=>'submit']) !!}
 
