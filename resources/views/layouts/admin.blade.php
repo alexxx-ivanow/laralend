@@ -37,5 +37,16 @@
     @endif
 </header>
 @yield('content')
+<script>
+    jQuery(function($) {
+        $('.portDel').click(function (e) {
+            if (confirm('Вы уверены, что хотите удалить эту фото?')) {
+                return true;
+            } else {
+                e.preventDefault();
+            }
+        });
+    });
+</script>
 </body>
 </html>

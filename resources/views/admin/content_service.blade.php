@@ -15,7 +15,7 @@
                     {!! Form::open(['url'=>route('servicesEdit',['service'=>$value['id']]), 'class'=>'form-horizontal','method' => 'POST']) !!}
                     {!! Form::hidden('id', $value['id']) !!}
                     {{ method_field('DELETE') }}
-                    {!! Form::button('Удалить',['class'=>'btn btn-danger','type'=>'submit']) !!}
+                    {!! Form::button('Удалить',['class'=>'btn btn-danger portDel','type'=>'submit']) !!}
 
                     {!! Form::close() !!}
                 </div>
